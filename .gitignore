@@ -1,0 +1,9 @@
+# IDE files
+.vscode/
+
+# Project folders
+node_modules/
+dist/
+
+# Env files
+.env.local
