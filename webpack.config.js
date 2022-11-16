@@ -1,6 +1,7 @@
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
