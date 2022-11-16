@@ -1,3 +1,6 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
@@ -19,6 +22,20 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
+        ],
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      fileName: './index.html',
+    }),
+  ],
 };

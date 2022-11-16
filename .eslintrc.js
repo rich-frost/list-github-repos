@@ -8,6 +8,7 @@ module.exports = {
     browser: true,
     es2021: true,
     commonjs: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
