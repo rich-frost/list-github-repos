@@ -21,5 +21,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+
+  rules: {
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md#rule-options
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+  },
 };

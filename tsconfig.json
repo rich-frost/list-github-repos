@@ -5,9 +5,10 @@
         "noImplicitAny": true,
         "module": "es6",
         "target": "es5",
-        "jsx": "react",
+        "jsx": "react-jsx",
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "Node"
+        "moduleResolution": "Node",
+        "jsxImportSource": "@emotion/react"
     }
 }
