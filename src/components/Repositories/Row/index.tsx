@@ -11,13 +11,9 @@ export default function Row({ data }: RowProps) {
   return (
     <Tr>
       <Td>
-        {data.url ? (
-          <Link href={data.url} isExternal>
-            {data.name} <Icon as={BiLinkExternal} mx="2px" w={3} h={3} />
-          </Link>
-        ) : (
-          data.name
-        )}
+        <Link href={data.url} isExternal>
+          {data.name} <Icon as={BiLinkExternal} mx="2px" w={3} h={3} />
+        </Link>
       </Td>
       <Td>
         <Icon as={GoStar} /> {data.stargazerCount.toLocaleString()}

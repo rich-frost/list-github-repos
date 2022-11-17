@@ -8,6 +8,7 @@ type ResultsProps = {
   data: SearchEdge[];
 };
 
+// TODO a little worried we're getting into prop drilling here, maybe better to use useContext to handle global settings
 export default function Results({ count, topic, data }: ResultsProps) {
   return (
     <>

@@ -17,6 +17,7 @@ type RepositoriesProps = {
   data: SearchEdge[];
 };
 
+//TODO swap out this table for react-table or similar for pagination/virtual lists etc
 export default function Repositories({ data }: RepositoriesProps) {
   return (
     <TableContainer>

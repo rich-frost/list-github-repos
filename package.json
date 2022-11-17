@@ -4,12 +4,15 @@
   "description": "",
   "main": "src/index.tsx",
   "scripts": {
-    "build": "webpack --watch",
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development --watch",
     "start": "webpack serve --open",
     "lint": "eslint src/",
     "test": "jest",
     "test-coverage": "jest --coverage",
-    "test-dev": "jest --watch"
+    "test-dev": "jest --watch",
+    "tsc": "tsc",
+    "tsc-dev": "tsc -w"
   },
   "keywords": [],
   "author": "",
