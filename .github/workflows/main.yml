@@ -61,6 +61,8 @@ jobs:
       - name: Build Application
         run: |
           npm run build
+        env:
+          CI: false
 
   # TODO finish this to push a container after building
   create-docker-container:
