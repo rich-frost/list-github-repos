@@ -46,15 +46,15 @@ This project was built from scratch using the following:
 
 ### Scripts
 
-`npm run start` - runs the project locally
-`npm run build` - builds the project for production and outputs to `dist/` folder (TODO)
-`npm run dev` - builds the project for development and outputs to `dist/` folder
-`npm run test` - runs unit tests
-`npm run test-dev` - runs unit tests with watch mode
-`npm run test-coverage` - runs unit tests with coverage report
-`npm run lint` - lints the project
-`npm run tsc` - compile the project with Typescript
-`npm run tsc-dev` - compile the project with Typescript and watch for changes
+- `npm run start` - runs the project locally
+- `npm run build` - builds the project for production and outputs to `dist/` folder (TODO)
+- `npm run dev` - builds the project for development and outputs to `dist/` folder
+- `npm run test` - runs unit tests
+- `npm run test-dev` - runs unit tests with watch mode
+- `npm run test-coverage` - runs unit tests with coverage report
+- `npm run lint` - lints the project
+- `npm run tsc` - compile the project with Typescript
+- `npm run tsc-dev` - compile the project with Typescript and watch for changes
 
 ### Application structure
 
