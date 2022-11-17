@@ -6,4 +6,8 @@ node_modules/
 dist/
 
 # Env files
+.env
 .env.local
+
+# jest
+reports/

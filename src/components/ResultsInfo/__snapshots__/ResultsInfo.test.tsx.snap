@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsInfo component renders the component 1`] = `
+<div
+  className="css-1w3riw2"
+>
+  <p
+    className="chakra-text css-0"
+  >
+    <span
+      className="chakra-badge css-ifsvay"
+    >
+      123
+    </span>
+     
+    respositories found for topic 
+    <b
+      className="chakra-text css-0"
+    >
+      React
+    </b>
+  </p>
+</div>
+`;

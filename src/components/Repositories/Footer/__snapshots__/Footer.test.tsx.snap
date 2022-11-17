@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders the component 1`] = `
+<table
+  className="chakra-table css-0"
+>
+  <tfoot
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+    >
+      <td
+        className="css-0"
+        colSpan={3}
+      >
+        <div
+          className="css-1bvc4cc"
+        >
+          <i
+            className="chakra-text css-0"
+          >
+            Showing top 10 GitHub repos for topic, sorted by best match
+          </i>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+`;

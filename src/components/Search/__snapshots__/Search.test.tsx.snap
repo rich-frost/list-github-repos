@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component renders the component 1`] = `
+<div
+  className="css-102lqhp"
+>
+  <div
+    className="css-9ck52x"
+  >
+    <p
+      className="chakra-text css-0"
+    >
+      Search repos by topic
+    </p>
+  </div>
+  <input
+    className="chakra-input css-0"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Enter topic"
+    value=""
+  />
+</div>
+`;
+
+exports[`Search component renders the component with populated input 1`] = `
+<div
+  className="css-102lqhp"
+>
+  <div
+    className="css-9ck52x"
+  >
+    <p
+      className="chakra-text css-0"
+    >
+      Search repos by topic
+    </p>
+  </div>
+  <input
+    className="chakra-input css-0"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Enter topic"
+    value=""
+  />
+</div>
+`;

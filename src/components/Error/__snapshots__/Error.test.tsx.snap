@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error component renders the component 1`] = `
+<p
+  className="chakra-text css-tq928n"
+>
+  An error occured: 
+  Sorry for the inconvenience
+</p>
+`;
+
+exports[`Error component renders the component with custom error 1`] = `
+<p
+  className="chakra-text css-tq928n"
+>
+  An error occured: 
+  The API failed to respond
+</p>
+`;
