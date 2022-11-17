@@ -58,6 +58,7 @@ jobs:
       - name: NPM Install
         run: npm ci --cache ~/.npm --prefer-offline
 
+      # TODO fix the build in the CI, somethings gone wrong
       - name: Build Application
         run: |
           git describe --tags --always
