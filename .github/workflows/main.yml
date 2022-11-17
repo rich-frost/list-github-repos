@@ -91,7 +91,6 @@ jobs:
           fi
 
       # Create a docker container if we're on a clean tag
-      - uses: actions/download-artifact@v3
-        if: steps.check-tag.outputs.match == 'true'
+      - if: steps.check-tag.outputs.match == 'true'
         run: |
           docker build . -t dockerized-app
