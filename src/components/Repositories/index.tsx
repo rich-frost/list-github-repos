@@ -4,13 +4,19 @@ import {
   Tbody,
   Tr,
   Th,
-  Td,
   TableContainer,
   Icon,
 } from '@chakra-ui/react';
 import { GoStar, GoRepoForked } from 'react-icons/go';
+import { SearchEdge } from '../../types/search';
+import NoData from './NoData';
+import Row from './Row';
 
-export default function Repositories() {
+type RepositoriesProps = {
+  data: SearchEdge[];
+};
+
+export default function Repositories({ data }: RepositoriesProps) {
   return (
     <TableContainer>
       <Table variant="simple">
@@ -18,23 +24,17 @@ export default function Repositories() {
           <Tr>
             <Th>Name</Th>
             <Th>
-              Stars <Icon as={GoStar} />
+              <Icon as={GoStar} /> Stars
             </Th>
             <Th>
-              Forks <Icon as={GoRepoForked} />
+              <Icon as={GoRepoForked} /> Forks
             </Th>
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            <Td>Redux</Td>
-            <Td>
-              60,000 <Icon as={GoStar} />
-            </Td>
-            <Td>
-              32,000 <Icon as={GoRepoForked} />
-            </Td>
-          </Tr>
+          {data.length === 0 && <NoData />}
+          {!!data &&
+            data.map((repo) => <Row key={repo.node.id} data={repo.node} />)}
         </Tbody>
       </Table>
     </TableContainer>

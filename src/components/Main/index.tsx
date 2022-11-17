@@ -28,17 +28,20 @@ export default function Main() {
   );
 
   useEffect(() => {
+    if (search === '') return;
     refetch();
   }, [search, refetch]);
 
   return (
     <VStack spacing={4} align="stretch">
-      <Search />
+      <Search {...{ setSearch, search }} />
       <Center>
         {loading && <Spinner />}
         {error && <Error error={error.message} />}
       </Center>
-      {!loading && !error && data && <Repositories />}
+      {!loading && !error && data && (
+        <Repositories data={data?.search?.edges} />
+      )}
     </VStack>
   );
 }

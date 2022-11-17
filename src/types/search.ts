@@ -1,5 +1,5 @@
 export interface SearchNode {
-  id: number;
+  id: string;
   name: string;
   url: string;
   stargazerCount: number;
