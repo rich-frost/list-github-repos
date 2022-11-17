@@ -40,6 +40,9 @@ This project was built from scratch using the following:
 - Chakra UI component library with emotion and react-icons
 - Jest and React Testing Library for unit tests
 - dotenv for parsing `.env` variables
+- GitHub actions
+  - run tests and build on merging to `main` branch
+  - attempts to create docker container if on clean tag of `main` branch (TODO finish this)
 
 ### Scripts
 
@@ -63,6 +66,8 @@ As a general overview of the app structure and code logic:
 - `src/components/` contains all the components
 - `src/types/` contains all types files, so far just includes the common search types
 - `src/utils/` contains util files
+- `Dockerfile` the docker file to create a built container
+- `nginx/nginx.conf` the nginx config for the docker container
 
 ### Future work
 
@@ -74,3 +79,4 @@ Main next steps could be:
 - Add integration tests (Cypress or Playwright)
 - Add better search - possibility to fetch list of topics to search against?
 - Possibly look into using Context provider to handle global data rather than prop drilling
+- Sort out webpack dev/prod builds

@@ -34,3 +34,64 @@ jobs:
 
       - name: Run Tests
         run: npm run test --if-present -- --ci
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: npm-
+
+      - name: NPM Install
+        run: npm ci --cache ~/.npm --prefer-offline
+
+      - name: Build Application
+        run: |
+          git describe --tags --always
+          npm run build
+
+  # TODO finish this to push a container after building
+  create-docker-container:
+    name: create docker container
+    needs:
+      - unit-test
+      - build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    # Only upload when on the main branch
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # Check if we are on a clean tag - and set a step output
+      - name: Is clean tag
+        id: check-tag
+        run: |
+          git describe --abbrev=0 --tags
+          git describe --tags
+          if [[ $(git describe --abbrev=0 --tags) == $(git describe --tags) ]]; then
+              echo ::set-output name=match::true
+          fi
+
+      # Create a docker container if we're on a clean tag
+      - uses: actions/download-artifact@v3
+        if: steps.check-tag.outputs.match == 'true'
+        run: |
+          docker build . -t dockerized-app
