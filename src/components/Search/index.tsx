@@ -6,7 +6,7 @@ interface SearchProps {
 }
 export default function Search({ search, setSearch }: SearchProps) {
   return (
-    <Flex justify="space-evenly" p={3}>
+    <Flex justify="space-evenly">
       <Center w="200px">
         <Text>Search repos by topic</Text>
       </Center>

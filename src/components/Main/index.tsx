@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Spinner, VStack, Center } from '@chakra-ui/react';
-import Repositories from '../Repositories';
 import Search from '../Search';
 import { useQuery } from '@apollo/client';
 import { DEFAULT_SEARCH, GRAPHQL_REACT_REPOS } from '../../constants';
 import Error from '../Error';
 import { SearchResults } from '../../types/search';
+import Results from '../Results';
 
 interface SearchData {
   search: SearchResults;
@@ -33,14 +33,18 @@ export default function Main() {
   }, [search, refetch]);
 
   return (
-    <VStack spacing={4} align="stretch">
+    <VStack spacing={4} align="stretch" p={3}>
       <Search {...{ setSearch, search }} />
       <Center>
         {loading && <Spinner />}
         {error && <Error error={error.message} />}
       </Center>
       {!loading && !error && data && (
-        <Repositories data={data?.search?.edges} />
+        <Results
+          data={data?.search?.edges}
+          count={data.search.repositoryCount}
+          topic={search}
+        />
       )}
     </VStack>
   );

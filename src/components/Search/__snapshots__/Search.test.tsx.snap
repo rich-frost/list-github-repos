@@ -2,7 +2,7 @@
 
 exports[`Search component renders the component 1`] = `
 <div
-  className="css-106l0id"
+  className="css-102lqhp"
 >
   <div
     className="css-9ck52x"
@@ -26,7 +26,7 @@ exports[`Search component renders the component 1`] = `
 
 exports[`Search component renders the component with populated input 1`] = `
 <div
-  className="css-106l0id"
+  className="css-102lqhp"
 >
   <div
     className="css-9ck52x"
