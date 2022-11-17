@@ -8,3 +8,6 @@ dist/
 # Env files
 .env
 .env.local
+
+# jest
+reports/
