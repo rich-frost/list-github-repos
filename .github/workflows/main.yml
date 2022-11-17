@@ -60,7 +60,6 @@ jobs:
 
       - name: Build Application
         run: |
-          git describe --tags --always
           npm run build
 
   # TODO finish this to push a container after building
