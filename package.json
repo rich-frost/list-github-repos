@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.tsx",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "webpack",
     "dev": "webpack --mode=development --watch",
     "start": "webpack serve --open",
     "lint": "eslint src/",
