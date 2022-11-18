@@ -11,3 +11,6 @@ dist/
 
 # jest
 reports/
+
+# Mac
+.DS_Store

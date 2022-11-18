@@ -2,6 +2,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
+// TODO Add config variant to analyze bundle size with BundleAnalyzerPlugin
+
 // TODO: split out this file into a common webpack with a dev and prod variant for building separate builds
 module.exports = () => {
   const envKeys = {
@@ -9,8 +11,10 @@ module.exports = () => {
   };
 
   return {
+    // TODO swap out mode to production if prod build
     mode: 'development',
     entry: './src/index.tsx',
+    //TODO This will need to be removed for prod build, causing a large build size currently!
     devtool: 'inline-source-map',
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
