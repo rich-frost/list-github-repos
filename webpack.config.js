@@ -1,21 +1,30 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
-
+const dotenv = require('dotenv');
 // TODO Add config variant to analyze bundle size with BundleAnalyzerPlugin
 
 // TODO: split out this file into a common webpack with a dev and prod variant for building separate builds
-module.exports = () => {
-  const envKeys = {
-    'process.env.GITHUB_ACCESS_TOKEN': process.env.GITHUB_ACCESS_TOKEN,
-  };
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
+
+  let envKeys = {};
+  if (isProduction) {
+    envKeys = {
+      'process.env.GITHUB_ACCESS_TOKEN': process.env.GITHUB_ACCESS_TOKEN,
+    };
+  } else {
+    const env = dotenv.config().parsed;
+    envKeys = Object.keys(env).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next]);
+      return prev;
+    }, {});
+  }
 
   return {
-    // TODO swap out mode to production if prod build
-    mode: 'development',
+    mode: isProduction ? 'production' : 'development',
     entry: './src/index.tsx',
-    //TODO This will need to be removed for prod build, causing a large build size currently!
-    devtool: 'inline-source-map',
+    devtool: isProduction ? false : 'inline-source-map',
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
@@ -50,5 +59,8 @@ module.exports = () => {
       }),
       new DefinePlugin(envKeys),
     ],
+    devServer: {
+      hot: true,
+    },
   };
 };
