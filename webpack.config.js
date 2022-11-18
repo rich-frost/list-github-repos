@@ -1,15 +1,12 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
-const dotenv = require('dotenv');
 
 // TODO: split out this file into a common webpack with a dev and prod variant for building separate builds
 module.exports = () => {
-  const env = dotenv.config().parsed;
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
+  const envKeys = {
+    'process.env.GITHUB_ACCESS_TOKEN': process.env.GITHUB_ACCESS_TOKEN,
+  };
 
   return {
     mode: 'development',
