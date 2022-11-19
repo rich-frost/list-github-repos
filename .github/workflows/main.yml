@@ -92,4 +92,4 @@ jobs:
       # Create a docker container if we're on a clean tag
       - if: steps.check-tag.outputs.match == 'true'
         run: |
-          docker build . -t dockerized-app
+          docker build -t react-docker . --build-arg gh_token="'${{ secrets.GH_PAT }}'"
