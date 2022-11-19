@@ -1,16 +1,12 @@
-FROM node:14-alpine as build
+FROM node:14-alpine AS builder
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY ./package.json /app/
-COPY ./package-lock.json /app/
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm ci
-COPY . /app
-RUN set GITHUB_ACCESS_TOKEN=${GITHUB_ACCESS_TOKEN} && npm run build
+COPY . .
+ARG gh_token
+ENV gh_token=$gh_token
+RUN GITHUB_ACCESS_TOKEN=$gh_token npm run build
 
-
-FROM node:14-alpine as production
-ENV NODE_ENV production
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM nginx:1.19-alpine AS server
+COPY --from=builder ./app/dist /usr/share/nginx/html

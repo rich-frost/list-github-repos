@@ -60,7 +60,7 @@ jobs:
 
       - name: Build Application
         run: |
-          set GITHUB_ACCESS_TOKEN=${{ secrets.GH_PAT }} && npm run build
+          GITHUB_ACCESS_TOKEN="'${{ secrets.GH_PAT }}'" npm run build
 
   # TODO finish this to push a container after building
   create-docker-container:
