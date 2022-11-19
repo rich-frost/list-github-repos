@@ -80,4 +80,3 @@ Main next steps could be:
 - Add better search - possibility to fetch list of topics to search against?
 - Possibly look into using Context provider to handle global data rather than prop drilling
 - Sort out webpack dev/prod builds
-- Add live reload to save having to refresh the page on code changes
