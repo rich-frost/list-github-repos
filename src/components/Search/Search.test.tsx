@@ -1,7 +1,6 @@
 import renderer from 'react-test-renderer';
 import Search from './index';
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, fireEvent } from '@testing-library/react';
 
 describe('Search component', () => {
   it('renders the component', () => {
@@ -22,15 +21,14 @@ describe('Search component', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  // FIXME: Need to be able to enter text into input
-  it.skip('calls setSearch callback on input change', async () => {
+  it('calls setSearch callback on input change', async () => {
     const searchParam = 'golang';
     const setSearch = jest.fn();
     const { container } = render(<Search search="" setSearch={setSearch} />);
 
     const input = await container.getElementsByClassName('chakra-input')[0];
-    console.log(input);
-    userEvent.type(input, searchParam);
+
+    fireEvent.change(input, { target: { value: searchParam } });
 
     expect(setSearch).toHaveBeenCalledTimes(1);
     expect(setSearch).toHaveBeenCalledWith(searchParam);
